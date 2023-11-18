@@ -3,18 +3,49 @@
 REM Descargar el archivo remoto "version.txt"
 curl -s -o version_remote.txt https://raw.githubusercontent.com/mochos/actualizador/main/version.txt
 
-REM Comparar el archivo remoto con el archivo local
-fc /b "version.txt" "version_remote.txt" > nul
+REM Verificar si existe el archivo local version.txt
+if exist version.txt (
+    REM Comparar el archivo remoto con el archivo local
+    fc /b "version.txt" "version_remote.txt" > nul
+    REM Verificar el código de error de fc (0 si son idénticos, 1 si son diferentes)
+    if errorlevel 1 (
+        echo ----------------------------------
+        echo Necesitas actualizar. Iniciando...
+        echo ----------------------------------
+        timeout /nobreak /t 3 >nul
 
-REM Verificar el código de error de fc (0 si son idénticos, 1 si son diferentes)
-if errorlevel 1 (
-    echo ----------------------------------
-    echo Necesitas actualizar. Iniciando...
-    echo ----------------------------------
+        call :instalar
+
+        pause
+        exit
+    ) else (
+        echo -----------------------
+        echo No necesitas actualizar.
+        echo -----------------------
+        del /q version_remote.txt
+        pause
+        exit
+    )
+) else (
+
+    echo -------------
+    echo Instalando...
+    echo -------------
     timeout /nobreak /t 3 >nul
-    REM Aquí va el resto de tu script para la actualización
 
-    REM -----------------------------------------------
+    call :instalar
+
+    pause
+    exit
+
+)
+
+
+
+
+REM La "función"
+:instalar
+REM -----------------------------------------------
 
     REM Eliminar la carpeta "prueba2" si existe
     if exist prueba2 (
@@ -50,21 +81,7 @@ if errorlevel 1 (
     REM Eliminar archivos temporales
     del /q repo.zip
     del /q version_remote.txt
-
     echo -------------------------------
-    echo Actualizado satisfactoriamente!
+    echo Instalado satisfactoriamente!
 
-
-    REM -----------------------------------------------
-
-
-    pause
-    exit
-) else (
-    echo -----------------------
-    echo No necesitas actualizar.
-    echo -----------------------
-    del /q version_remote.txt
-    pause
-    exit
-)
+    exit /b
