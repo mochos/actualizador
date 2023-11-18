@@ -8,9 +8,9 @@ fc /b "version.txt" "version_remote.txt" > nul
 
 REM Verificar el código de error de fc (0 si son idénticos, 1 si son diferentes)
 if errorlevel 1 (
-    echo ##################################
+    echo ----------------------------------
     echo Necesitas actualizar. Iniciando...
-    echo ##################################
+    echo ----------------------------------
     timeout /nobreak /t 3 >nul
     REM Aquí va el resto de tu script para la actualización
 
@@ -51,6 +51,9 @@ if errorlevel 1 (
     del /q repo.zip
     del /q version_remote.txt
 
+    echo -------------------------------
+    echo Actualizado satisfactoriamente!
+
 
     REM -----------------------------------------------
 
@@ -58,9 +61,9 @@ if errorlevel 1 (
     pause
     exit
 ) else (
-    echo ########################
+    echo -----------------------
     echo No necesitas actualizar.
-    echo ########################
+    echo -----------------------
     del /q version_remote.txt
     pause
     exit
