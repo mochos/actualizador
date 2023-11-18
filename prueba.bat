@@ -1,7 +1,7 @@
 @echo off
 
 REM Descargar el archivo remoto "version.txt"
-curl -o version_remote.txt https://raw.githubusercontent.com/mochos/actualizador/main/version.txt
+curl -s -o version_remote.txt https://raw.githubusercontent.com/mochos/actualizador/main/version.txt
 
 REM Comparar el archivo remoto con el archivo local
 fc /b "version.txt" "version_remote.txt" > nul
