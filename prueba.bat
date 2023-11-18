@@ -26,13 +26,13 @@ if exist "prueba" (
 )
 
 REM Descargar el archivo ZIP del repositorio
-REM curl -L -o repo.zip https://github.com/lorspi/FirmasLatin/archive/main.zip
+curl -L -o repo.zip https://github.com/mochos/actualizador/archive/main.zip
 
 REM Descomprimir el archivo ZIP en la carpeta temporal
-REM tar -xf repo.zip --strip-components=1
+tar -xf repo.zip --strip-components=1
 
 REM Eliminar archivos temporales
-REM del /q repo.zip
+del /q repo.zip
 
 
 REM Falta: Que lea el txt local y el txt del github y compare las versiones. Segun eso decide si actualizar o no.
