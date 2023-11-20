@@ -46,17 +46,26 @@ REM Función instalar
 :instalar
 REM -----------------------------------------------
 
+    echo Descargando archivos iniciales...
+
     REM Descargar el archivo ZIP del repositorio
-    curl -L -o instalar.zip https://raw.githubusercontent.com/mochos/actualizador/main/instalar/instalar.zip
+    curl -s -L -o instalar.zip https://raw.githubusercontent.com/mochos/actualizador/main/instalar/instalar.zip
+
+    echo Extrayendo archivos...
 
     REM Descomprimir el archivo ZIP en la carpeta temporal
     tar -xf instalar.zip --strip-components=0
 
     timeout /nobreak /t 3 >nul
 
+    echo Eliminando temporales...
+
     REM Eliminar archivos temporales
     del /q instalar.zip
-    echo Inicial ok
+
+    echo ----------------------------------
+    echo   Archivos iniciales instalados!
+    echo ----------------------------------
 
     exit /b
 
@@ -66,13 +75,15 @@ REM Función actualizar
 REM -----------------------------------------------
 
     REM Eliminar la carpeta "prueba2" si existe
-    if exist prueba2 (
-        rmdir /s /q prueba2
+
+    if exist cachedImages (
+        rmdir /s /q cachedImages
     )
 
     REM Verifica si la carpeta existe
-    if exist "prueba" (
-        pushd "prueba"
+    if exist "mods" (
+        pushd "mods"
+        echo Eliminando versiones angiguas...
 
         REM Identificar y mover los archivos que comienzan con "NB_" a una carpeta temporal
         mkdir temp
@@ -90,13 +101,19 @@ REM -----------------------------------------------
         popd
     )
 
+    echo Descargando mods...
+
     REM Descargar el archivo ZIP del repositorio
-    curl -L -o actualizar.zip https://raw.githubusercontent.com/mochos/actualizador/main/actualizar/actualizar.zip
+    curl -s -L -o actualizar.zip https://raw.githubusercontent.com/mochos/actualizador/main/actualizar/actualizar.zip
+
+    echo Extrayendo archivos...
 
     REM Descomprimir el archivo ZIP en la carpeta temporal
     tar -xf actualizar.zip --strip-components=0
 
     timeout /nobreak /t 3 >nul
+
+    echo Eliminando temporales...
 
     REM Eliminar archivos temporales
     del /q actualizar.zip
