@@ -29,7 +29,7 @@ if exist version.txt (
 ) else (
 
     echo -----------------
-    echo   Instalando...
+    echo   Iniciando...
     echo -----------------
     timeout /nobreak /t 3 >nul
 
@@ -63,9 +63,7 @@ REM -----------------------------------------------
     REM Eliminar archivos temporales
     del /q instalar.zip
 
-    echo ----------------------------------
-    echo   Archivos iniciales instalados!
-    echo ----------------------------------
+    echo Archivos iniciales instalados!
 
     exit /b
 
