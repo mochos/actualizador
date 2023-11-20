@@ -1,7 +1,7 @@
 @echo off
 
 REM Descargar el archivo remoto "version.txt"
-curl -s -o version_remote.txt https://raw.githubusercontent.com/mochos/actualizador/main/version.txt
+curl -s -o version_remote.txt https://raw.githubusercontent.com/mochos/actualizador/main/actualizar/version.txt
 
 REM Verificar si existe el archivo local version.txt
 if exist version.txt (
@@ -14,7 +14,7 @@ if exist version.txt (
         echo --------------------------------------
         timeout /nobreak /t 3 >nul
 
-        call :instalar
+        call :actualizar
 
         pause
         exit
@@ -34,6 +34,7 @@ if exist version.txt (
     timeout /nobreak /t 3 >nul
 
     call :instalar
+    call :actualizar
 
     pause
     exit
@@ -41,10 +42,27 @@ if exist version.txt (
 )
 
 
-
-
-REM La "función"
+REM Función instalar
 :instalar
+REM -----------------------------------------------
+
+    REM Descargar el archivo ZIP del repositorio
+    curl -L -o instalar.zip https://raw.githubusercontent.com/mochos/actualizador/main/instalar/instalar.zip
+
+    REM Descomprimir el archivo ZIP en la carpeta temporal
+    tar -xf instalar.zip --strip-components=0
+
+    timeout /nobreak /t 3 >nul
+
+    REM Eliminar archivos temporales
+    del /q instalar.zip
+    echo Inicial ok
+
+    exit /b
+
+
+REM Función actualizar
+:actualizar
 REM -----------------------------------------------
 
     REM Eliminar la carpeta "prueba2" si existe
@@ -73,16 +91,15 @@ REM -----------------------------------------------
     )
 
     REM Descargar el archivo ZIP del repositorio
-    curl -L -o repo.zip https://github.com/mochos/actualizador/archive/main.zip
+    curl -L -o actualizar.zip https://raw.githubusercontent.com/mochos/actualizador/main/actualizar/actualizar.zip
 
     REM Descomprimir el archivo ZIP en la carpeta temporal
-    tar -xf repo.zip --strip-components=1
+    tar -xf actualizar.zip --strip-components=0
 
     timeout /nobreak /t 3 >nul
 
     REM Eliminar archivos temporales
-    del /q repo.zip
-    del /q prueba.7z
+    del /q actualizar.zip
     del /q version_remote.txt
     echo ---------------------------------
     echo   Instalado satisfactoriamente!
