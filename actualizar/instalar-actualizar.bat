@@ -9,9 +9,9 @@ if exist version.txt (
     fc /b "version.txt" "version_remote.txt" > nul
     REM Verificar el código de error de fc (0 si son idénticos, 1 si son diferentes)
     if errorlevel 1 (
-        echo --------------------------------------
-        echo   Necesitas actualizar. Iniciando...
-        echo --------------------------------------
+        echo ------------------------------
+        echo   Iniciando actualizacion...
+        echo ------------------------------
         timeout /nobreak /t 3 >nul
 
         call :actualizar
@@ -28,9 +28,9 @@ if exist version.txt (
     )
 ) else (
 
-    echo -----------------
-    echo   Iniciando...
-    echo -----------------
+    echo ----------------------------
+    echo   Iniciando instalacion...
+    echo ----------------------------
     timeout /nobreak /t 3 >nul
 
     call :instalar
@@ -81,7 +81,7 @@ REM -----------------------------------------------
     REM Verifica si la carpeta existe
     if exist "mods" (
         pushd "mods"
-        echo Eliminando versiones angiguas...
+        echo Eliminando versiones antiguas...
 
         REM Identificar y mover los archivos que comienzan con "NB_" a una carpeta temporal
         mkdir temp
