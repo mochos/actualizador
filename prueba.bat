@@ -9,9 +9,9 @@ if exist version.txt (
     fc /b "version.txt" "version_remote.txt" > nul
     REM Verificar el código de error de fc (0 si son idénticos, 1 si son diferentes)
     if errorlevel 1 (
-        echo ----------------------------------
-        echo Necesitas actualizar. Iniciando...
-        echo ----------------------------------
+        echo --------------------------------------
+        echo   Necesitas actualizar. Iniciando...
+        echo --------------------------------------
         timeout /nobreak /t 3 >nul
 
         call :instalar
@@ -19,18 +19,18 @@ if exist version.txt (
         pause
         exit
     ) else (
-        echo -----------------------
-        echo No necesitas actualizar.
-        echo -----------------------
+        echo ---------------------------
+        echo   No necesitas actualizar.
+        echo ---------------------------
         del /q version_remote.txt
         pause
         exit
     )
 ) else (
 
-    echo -------------
-    echo Instalando...
-    echo -------------
+    echo -----------------
+    echo   Instalando...
+    echo -----------------
     timeout /nobreak /t 3 >nul
 
     call :instalar
@@ -59,14 +59,14 @@ REM -----------------------------------------------
         REM Identificar y mover los archivos que comienzan con "NB_" a una carpeta temporal
         mkdir temp
         for %%F in (NB_*) do (
-            move "%%F" temp\
+            move "%%F" temp\ > nul 2>&1
         )
 
         REM Eliminar todos los archivos restantes en la carpeta
         del /q *
 
         REM Mover de vuelta los archivos que habían comenzado con "NB_"
-        move temp\* .
+        move temp\* . > nul 2>&1
         rmdir /q /s temp
 
         popd
@@ -78,10 +78,14 @@ REM -----------------------------------------------
     REM Descomprimir el archivo ZIP en la carpeta temporal
     tar -xf repo.zip --strip-components=1
 
+    timeout /nobreak /t 3 >nul
+
     REM Eliminar archivos temporales
     del /q repo.zip
+    del /q prueba.7z
     del /q version_remote.txt
-    echo -------------------------------
-    echo Instalado satisfactoriamente!
+    echo ---------------------------------
+    echo   Instalado satisfactoriamente!
+    echo ---------------------------------
 
     exit /b
