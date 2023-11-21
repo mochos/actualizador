@@ -11,8 +11,6 @@ set "ruta_actual=%cd%"
 
 rem Verificar si estamos dentro de la carpeta .minecraft
 if "%ruta_actual:~-11%"=="\%carpeta%" (
-    echo Estás dentro de la carpeta %carpeta%. Iniciando...
-    timeout /nobreak /t 2 >nul
 
     call :completa
 
