@@ -20,7 +20,7 @@ if "%ruta_actual:~-11%"=="\%carpeta%" (
     echo -----------------------------------------------------------------------------------------------------------
     echo   ¡ADVERTENCIA!:
     echo    Para que el modpack funcione correctamente debes ejecutar este archivo dentro de la carpeta %carpeta%.
-    echo    No estas ejecutando el archivo dentro de la carpeta %carpeta%.
+    echo    No estás ejecutando este archivo en la carpeta correcta.
     echo -----------------------------------------------------------------------------------------------------------
     choice /C SN /M " ¿Deseas continuar en esta carpeta de todos modos? (S/N)"
     if errorlevel 2 (
