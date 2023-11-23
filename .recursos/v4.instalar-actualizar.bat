@@ -5,7 +5,6 @@ chcp 65001 >nul
 setlocal
 
 set "carpeta=.minecraft"
-set crear_acceso=0
 
 rem Obtener la ruta actual
 set "ruta_actual=%cd%"
@@ -118,44 +117,6 @@ if exist version.txt (
     )
 ) else (
 
-
-    call :instalar
-    call :actualizar
-
-    pause >nul
-    exit
-)
-
-
-REM Función instalar
-:instalar
-REM -----------------------------------------------
-
-    cls
-    echo ┌─────────────────────────────────────────────────────────────┐
-    echo │ Modpack - Instalador                                        │
-    echo ╞═════════════════════════════════════════════════════════════╡
-    echo │                                                             │
-    echo │  ¿Quieres crear un acceso directo del actualizador          │
-    echo │  en tu escritorio?                                          │
-    echo │                                                             │
-    echo │                                                             │
-    echo │                                                             │
-    echo │                                                             │
-    echo │                                                             │
-    echo │  Pulsa S o N                                                │
-    echo │                                                             │
-    echo └─────────────────────────────────────────────────────────────┘
-    choice /C SN /M "Escribe S o N" >nul
-
-    if errorlevel 2 (
-        set crear_acceso=0
-    ) else (
-        set crear_acceso=1
-    )
-
-    timeout /nobreak /t 1 >nul
-
     cls
     echo ┌─────────────────────────────────────────────────────────────┐
     echo │ Modpack - Instalador                                        │
@@ -173,6 +134,17 @@ REM -----------------------------------------------
     echo └─────────────────────────────────────────────────────────────┘    
     timeout /nobreak /t 3 >nul
 
+    call :instalar
+    call :actualizar
+
+    pause >nul
+    exit
+)
+
+
+REM Función instalar
+:instalar
+REM -----------------------------------------------
 
     cls
     echo ┌─────────────────────────────────────────────────────────────┐
@@ -213,14 +185,6 @@ REM -----------------------------------------------
     tar -xf instalar.zip --strip-components=0
 
     timeout /nobreak /t 3 >nul
-
-    set "target=%~dp0instalar-actualizar.bat"
-    set "shortcut=%USERPROFILE%\Desktop\Actualizar Modpack.lnk"
-    set "iconPath=%~dp0instalar-actualizar.ico" REM Ruta al archivo .ico en la misma carpeta que el batch
-
-    if "%crear_acceso%" EQU "1" (
-        start powershell -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%shortcut%'); $s.TargetPath = '%target%'; $s.IconLocation = '%iconPath%'; $s.Save()"
-    )
 
     cls
     echo ┌─────────────────────────────────────────────────────────────┐
