@@ -217,7 +217,7 @@ REM -----------------------------------------------
     timeout /nobreak /t 3 >nul
 
     set "target=%~dp0instalar-actualizar.bat"
-    set "shortcut=%USERPROFILE%\Desktop\Actualizar Modpack.lnk"
+    set "shortcut=%USERPROFILE%\Desktop\Actualizar Perryland.lnk"
     set "iconPath=%~dp0instalar-actualizar.ico" REM Ruta al archivo .ico en la misma carpeta que el batch
 
     if "%crear_acceso%" EQU "1" (
