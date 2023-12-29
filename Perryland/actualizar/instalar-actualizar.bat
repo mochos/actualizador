@@ -68,7 +68,7 @@ REM Función completa
 
 :completa
 REM Descargar el archivo remoto "version.txt"
-curl -s -o version_remote.txt https://raw.githubusercontent.com/mochos/actualizador/main/actualizar/version.txt
+curl -s -o version_remote.txt https://raw.githubusercontent.com/mochos/actualizador/main/Perryland/actualizar/version.txt
 
 REM Verificar si existe el archivo local version.txt
 if exist version.txt (
