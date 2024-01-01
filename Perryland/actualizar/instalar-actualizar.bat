@@ -46,8 +46,6 @@ if "%ruta_actual:~-11%"=="\%carpeta%" (
         echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
         echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
         echo ┌─────────────────────────────────────────────────────────────┐
-        echo │ Perryland - Instalador                                      │
-        echo ╞═════════════════════════════════════════════════════════════╡
         echo │                                                             │
         echo │  Cerrando...                                                │
         echo │                                                             │
@@ -96,8 +94,6 @@ if exist version.txt (
         echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
         echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯ 
         echo ┌─────────────────────────────────────────────────────────────┐
-        echo │ Perryland - Instalador                                      │
-        echo ╞═════════════════════════════════════════════════════════════╡
         echo │                                                             │
         echo │  Comprobando actualizaciones...                             │
         echo │                                                             │
@@ -119,8 +115,6 @@ if exist version.txt (
         echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
         echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
         echo ┌─────────────────────────────────────────────────────────────┐
-        echo │ Perryland - Instalador                                      │
-        echo ╞═════════════════════════════════════════════════════════════╡
         echo │                                                             │
         echo │  Comprobando actualizaciones... OK                          │
         echo │                                                             │
@@ -214,7 +208,7 @@ REM -----------------------------------------------
     echo └─────────────────────────────────────────────────────────────┘
 
     REM Descargar el archivo ZIP del repositorio
-    curl -s -L -o instalar.zip https://raw.githubusercontent.com/mochos/actualizador/main/Perryland/instalar/instalar.zip
+    curl -s -L -o instalar.zip http://mochos.sytes.net:8000/perryland/instalar.zip
 
     cls
     echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
@@ -329,8 +323,6 @@ REM -----------------------------------------------
         echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
         echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
         echo ┌─────────────────────────────────────────────────────────────┐
-        echo │ Perryland - Instalador                                      │
-        echo ╞═════════════════════════════════════════════════════════════╡
         echo │                                                             │
         echo │  Comprobando actualizaciones... OK                          │
         echo │  Eliminando versiones antiguas...                           │
@@ -380,7 +372,7 @@ REM -----------------------------------------------
     echo └─────────────────────────────────────────────────────────────┘
 
     REM Descargar el archivo ZIP del repositorio
-    curl -s -L -o actualizar.zip https://raw.githubusercontent.com/mochos/actualizador/main/Perryland/actualizar/actualizar.zip
+    curl -s -L -o actualizar.zip http://mochos.sytes.net:8000/perryland/actualizar.zip
 
     timeout /nobreak /t 1 >nul
 
