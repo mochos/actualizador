@@ -129,7 +129,7 @@ if exist version.txt (
         echo │                                                             │
         echo │                                                             │
         echo │                                                             │
-        echo │  Pulsa cualquier tecla para cerrar...                       │
+        echo │  Ya puedes cerrar esta ventana.                             │
         echo │                                                             │
         echo └─────────────────────────────────────────────────────────────┘
         pause >nul
@@ -434,7 +434,7 @@ REM -----------------------------------------------
     echo │  Eliminando temporales... OK                                │
     echo │                                                             │
     echo │  ¡INSTALACIÓN TERMINADA!                                    │
-    echo │  Pulsa cualquier tecla para cerrar...                       │
+    echo │  Ya puedes cerrar esta ventana.                             │
     echo │                                                             │
     echo └─────────────────────────────────────────────────────────────┘
 
