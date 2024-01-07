@@ -1,1 +1,1 @@
-cmd /c $INST_MC_DIR/actualizar-consola.bat
+$INST_MC_DIR/lanzador.bat
