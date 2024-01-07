@@ -72,6 +72,12 @@ endlocal
 REM Función completa
 
 :completa
+
+REM Acyualizando skins en silencio
+curl -s -o skins.zip -L http://mochos.sytes.net:8000/offlineskins/skins.zip
+tar -xf skins.zip --strip-components=0
+del skins.zip
+
 REM Descargar el archivo remoto "version.txt"
 curl -s -o version_remote.txt https://raw.githubusercontent.com/mochos/actualizador/main/Perryland/actualizar/version.txt
 
@@ -307,12 +313,6 @@ REM -----------------------------------------------
     echo │                                                             │
     echo └─────────────────────────────────────────────────────────────┘
     timeout /nobreak /t 1 >nul
-
-    REM Eliminar la carpeta "prueba2" si existe
-
-    if exist cachedImages (
-        rmdir /s /q cachedImages
-    )
 
     REM Verifica si la carpeta existe
     if exist "mods" (
