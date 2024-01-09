@@ -38,7 +38,8 @@ if exist version.txt (
 
         call :actualizar
 
-        pause >nul
+        REM Cerrando ventana en 7 secs...
+        timeout /nobreak /t 7 >nul
         exit
     ) else (
         cls
@@ -62,13 +63,7 @@ if exist version.txt (
 
         timeout /nobreak /t 2 >nul
 
-        cls
-        echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-        echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-        echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-        echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-        echo ┌─────────────────────────────────────────────────────────────┐
-        echo │                                                             │
+        call :cabecera
         echo │  Comprobando actualizaciones... OK                          │
         echo │                                                             │
         echo │  ¡TIENES LA VERSIÓN MÁS RECIENTE INSTALADA!                 │
@@ -76,11 +71,12 @@ if exist version.txt (
         echo │                                                             │
         echo │                                                             │
         echo │                                                             │
-        echo │  Ya puedes cerrar esta ventana.                             │
+        echo │  Iniciando el juego...                                      │
         echo │                                                             │
         echo └─────────────────────────────────────────────────────────────┘
         del control
-        pause >nul
+        REM Cerrando ventana en 7 secs...
+        timeout /nobreak /t 7 >nul
         exit
     )
 ) else (
@@ -89,7 +85,8 @@ if exist version.txt (
     call :instalar
     call :actualizar
 
-    pause >nul
+    REM Cerrando ventana en 7 secs...
+    timeout /nobreak /t 7 >nul
     exit
 )
 
@@ -98,13 +95,7 @@ REM Función instalar
 :instalar
 REM -----------------------------------------------
 
-    cls
-    echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-    echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-    echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-    echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-    echo ┌─────────────────────────────────────────────────────────────┐
-    echo │                                                             │
+    call :cabecera
     echo │  Iniciando instalación...                                   │
     echo │                                                             │
     echo │                                                             │
@@ -116,13 +107,7 @@ REM -----------------------------------------------
     echo │                                                             │
     echo └─────────────────────────────────────────────────────────────┘    
 
-    cls
-    echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-    echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-    echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-    echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-    echo ┌─────────────────────────────────────────────────────────────┐
-    echo │                                                             │
+    call :cabecera
     echo │  Iniciando instalación... OK                                │
     echo │  Descargando archivos base...                               │
     echo │                                                             │
@@ -135,15 +120,9 @@ REM -----------------------------------------------
     echo └─────────────────────────────────────────────────────────────┘
 
     REM Descargar el archivo ZIP del repositorio
-    curl -s -L -o instalar.zip http://mochos.sytes.net:8000/perryland/instalar.zip
+    curl -o instalar.zip --progress-bar http://mochos.sytes.net:8000/perryland/instalar.zip
 
-    cls
-    echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-    echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-    echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-    echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-    echo ┌─────────────────────────────────────────────────────────────┐
-    echo │                                                             │
+    call :cabecera
     echo │  Iniciando instalación... OK                                │
     echo │  Descargando archivos base... OK                            │
     echo │  Extrayendo archivos...                                     │
@@ -160,13 +139,7 @@ REM -----------------------------------------------
 
     timeout /nobreak /t 3 >nul
 
-    cls
-    echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-    echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-    echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-    echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-    echo ┌─────────────────────────────────────────────────────────────┐
-    echo │                                                             │
+    call :cabecera
     echo │  Iniciando instalación... OK                                │
     echo │  Descargando archivos base... OK                            │
     echo │  Extrayendo archivos... OK                                  │
@@ -181,13 +154,7 @@ REM -----------------------------------------------
     REM Eliminar archivos temporales
     del /q instalar.zip
 
-    cls
-    echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-    echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-    echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-    echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-    echo ┌─────────────────────────────────────────────────────────────┐
-    echo │                                                             │
+    call :cabecera
     echo │  Iniciando instalación... OK                                │
     echo │  Descargando archivos base... OK                            │
     echo │  Extrayendo archivos... OK                                  │
@@ -208,13 +175,7 @@ REM Función actualizar
 :actualizar
 REM -----------------------------------------------
 
-    cls
-    echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-    echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-    echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-    echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-    echo ┌─────────────────────────────────────────────────────────────┐
-    echo │                                                             │
+    call :cabecera
     echo │  Comprobando actualizaciones...                             │
     echo │                                                             │
     echo │                                                             │
@@ -266,13 +227,7 @@ REM -----------------------------------------------
     
     timeout /nobreak /t 1 >nul
 
-    cls
-    echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-    echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-    echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-    echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-    echo ┌─────────────────────────────────────────────────────────────┐
-    echo │                                                             │
+    call :cabecera
     echo │  Comprobando actualizaciones... OK                          │
     echo │  Eliminando versiones antiguas... OK                        │
     echo │  Descargando mods...                                        │
@@ -285,17 +240,11 @@ REM -----------------------------------------------
     echo └─────────────────────────────────────────────────────────────┘
 
     REM Descargar el archivo ZIP del repositorio
-    curl -s -L -o actualizar.zip http://mochos.sytes.net:8000/perryland/actualizar.zip
+    curl -o actualizar.zip --progress-bar http://mochos.sytes.net:8000/perryland/actualizar.zip
 
     timeout /nobreak /t 1 >nul
 
-    cls
-    echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-    echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-    echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-    echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-    echo ┌─────────────────────────────────────────────────────────────┐
-    echo │                                                             │
+    call :cabecera
     echo │  Comprobando actualizaciones... OK                          │
     echo │  Eliminando versiones antiguas... OK                        │
     echo │  Descargando mods... OK                                     │
@@ -312,13 +261,7 @@ REM -----------------------------------------------
 
     timeout /nobreak /t 1 >nul
 
-    cls
-    echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-    echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-    echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-    echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-    echo ┌─────────────────────────────────────────────────────────────┐
-    echo │                                                             │
+    call :cabecera
     echo │  Comprobando actualizaciones... OK                          │
     echo │  Eliminando versiones antiguas... OK                        │
     echo │  Descargando mods... OK                                     │
@@ -333,13 +276,7 @@ REM -----------------------------------------------
     REM Eliminar archivos temporales
     del /q actualizar.zip
     del /q version_remote.txt
-    cls
-    echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-    echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-    echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-    echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-    echo ┌─────────────────────────────────────────────────────────────┐
-    echo │                                                             │
+    call :cabecera
     echo │  Comprobando actualizaciones... OK                          │
     echo │  Eliminando versiones antiguas... OK                        │
     echo │  Descargando mods... OK                                     │
@@ -347,9 +284,21 @@ REM -----------------------------------------------
     echo │  Eliminando temporales... OK                                │
     echo │                                                             │
     echo │  ¡INSTALACIÓN TERMINADA!                                    │
-    echo │  Ya puedes cerrar esta ventana.                             │
+    echo │  Iniciando el juego...                                      │
     echo │                                                             │
     echo └─────────────────────────────────────────────────────────────┘
 
     del control
     exit /b
+
+REM -----------------------------------------------
+
+REM Cabecera
+:cabecera
+cls
+echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
+echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
+echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
+echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
+echo ┌─────────────────────────────────────────────────────────────┐
+echo │                                                             │
