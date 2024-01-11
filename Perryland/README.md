@@ -5,7 +5,7 @@
 </p>
 <h1 align="center">Perryland</h1>
 <p align="center">
-![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/mochos/actualizador?style=for-the-badge)
+<img alt="GitHub last commit (by committer)" src="https://img.shields.io/github/last-commit/mochos/actualizador?style=for-the-badge">
 
 </p>
 <p align="center">
@@ -14,9 +14,6 @@
   <a href="https://github.com/mochos/actualizador/raw/main/Perryland/batch/instalar-actualizar.bat" download="instalar-actualizar.bat">Descargar instalador independiente (batch)</a>
 </p>
 <br />
-
-
-[![-----------------------------------------------------]](#instalar)
 
 ##  🔽 Instalación:
 ### MultiMC
