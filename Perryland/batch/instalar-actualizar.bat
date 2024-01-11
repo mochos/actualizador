@@ -21,11 +21,7 @@ if "%ruta_actual:~-11%"=="\%carpeta%" (
     call :completa
 
 ) else (
-    echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-    echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-    echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-    echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-    echo ┌─────────────────────────────────────────────────────────────┐
+    call :cabecera
     echo │                                                             │
     echo │  ¡ADVERTENCIA!:                                             │
     echo │  Para que el modpack funcione correctamente debes           │
@@ -40,12 +36,7 @@ if "%ruta_actual:~-11%"=="\%carpeta%" (
     choice /C SN /M "Escribe S o N" >nul
 
     if errorlevel 2 (
-        cls
-        echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-        echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-        echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-        echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-        echo ┌─────────────────────────────────────────────────────────────┐
+        call :cabecera
         echo │                                                             │
         echo │  Cerrando...                                                │
         echo │                                                             │
@@ -94,12 +85,7 @@ if exist version.txt (
         pause >nul
         exit
     ) else (
-        cls
-        echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-        echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-        echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-        echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯ 
-        echo ┌─────────────────────────────────────────────────────────────┐
+        call :cabecera
         echo │                                                             │
         echo │  Comprobando actualizaciones...                             │
         echo │                                                             │
@@ -115,12 +101,7 @@ if exist version.txt (
 
         timeout /nobreak /t 2 >nul
 
-        cls
-        echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-        echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-        echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-        echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-        echo ┌─────────────────────────────────────────────────────────────┐
+        call :cabecera
         echo │                                                             │
         echo │  Comprobando actualizaciones... OK                          │
         echo │                                                             │
@@ -275,12 +256,7 @@ REM -----------------------------------------------
     REM Verifica si la carpeta existe
     if exist "mods" (
         pushd "mods"
-        cls
-        echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-        echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-        echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-        echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-        echo ┌─────────────────────────────────────────────────────────────┐
+        call :cabecera
         echo │                                                             │
         echo │  Comprobando actualizaciones... OK                          │
         echo │  Eliminando versiones antiguas...                           │

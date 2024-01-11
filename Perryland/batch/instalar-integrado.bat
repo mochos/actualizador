@@ -42,12 +42,7 @@ if exist version.txt (
         timeout /nobreak /t 7 >nul
         exit
     ) else (
-        cls
-        echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-        echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-        echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-        echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯ 
-        echo ┌─────────────────────────────────────────────────────────────┐
+        call :cabecera
         echo │                                                             │
         echo │  Comprobando actualizaciones...                             │
         echo │                                                             │
@@ -191,12 +186,7 @@ REM -----------------------------------------------
     REM Verifica si la carpeta existe
     if exist "mods" (
         pushd "mods"
-        cls
-        echo     ┌─────┬─────┬─────┬─────┬──┬──┬──┐  ┌─────┬───┬─┬────╮
-        echo     │  ─  │   ──┤ ──  │ ──  │  │  │  │  │  ─  │   │ │  │ │
-        echo     │  ┌──┤   ──┤    ─┤    ─┼─┐ ┌─┤  └──┤     │ │ │ │  │ │
-        echo     └──┘  └─────┴──┴──┴──┴──┘ └─┘ └─────┴──┴──┴─┴───┴────╯
-        echo ┌─────────────────────────────────────────────────────────────┐
+        call :cabecera
         echo │                                                             │
         echo │  Comprobando actualizaciones... OK                          │
         echo │  Eliminando versiones antiguas...                           │
