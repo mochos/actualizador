@@ -1,0 +1,42 @@
+#### ¡Bienvenidos a Perryland!
+
+Mi compalero @elpantallazoazul y yo @lorspi creamos este pequeño servidor de mods para Minecraft 1.20.1. Para instalar los mods y entrar al servidor están las instrucciones más adelante.
+
+Si no estás en la whitelist y querés hacer parte de este servidor, ponete en contacto con **PantallazoAzul** o **lorspi**
+
+## Instalar
+
+### MultiMC
+1. Descarga la instancia: [Instancia para MultiMC](https://github.com/mochos/actualizador/raw/main/Perryland/Perryland.zip)
+2. Abre tu MultiMC y arrastra el zip descargado hacia la ventana del launcher.
+3. En la ventana que aparece le das en "Ok"
+4. Inicias la instancia que acabas de instalar
+```ℹ️ Cada vez que inicies esa instancia se comprobará automáticamente si hay actuaizaciones.```
+
+### Otros launchers
+1. Descarga el instalador: [Instalador batch](https://github.com/mochos/actualizador/raw/main/Perryland/batch/instalar-actualizar.bat)
+2. Descomprime el zip en tu carpeta _.minecraft_ de tu juego.
+3. Ejecuta el archivo _instalar-actualizar.bat_ y sigue las instrucciones.
+```ℹ️ Deberás ejecutarlo manualmente antes de jugar cada vez que se necesiten hayan actualizaciones.```
+
+### Mods personales
+Si agregas mods personales a tu juego, deberás agregarles **"NB_"** al inicio del nombre para que no sean borrados cuando hayan actualizaciones.
+Por ejemplo **"farsight-1.20.1-3.5.jar."** ---> **"NB_farsight-1.20.1-3.5.jar."**
+
+### IP del servidor
+lorem ipsum
+
+### Comandos
+```diff
++ Acción
+/comando
+```
+### Reglas
+```javascript
+1. No grifearás ni al Perryland ni a tus compañeros.
+2. Serás respetuoso en tu forma de comunicarte.
+3. No robarás las pertenencias de los otros jugadores.
+4. No sabotearás al Perryland ni en su funcionamiento ni en su construcción.
+5. No estafarás a tus compañeros.
+6. Reportarás cualquier actividad sospechosa de tus compañeros.```
+```El Mundito y su staff no se hacen responsables por la pérdida de inventarios, construcciones o progresos del jugador por causa del mal funcionamiento de la plataforma, cambio de nick o sabotaje de otros jugadores.```
