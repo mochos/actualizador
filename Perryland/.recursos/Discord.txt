@@ -4,17 +4,21 @@ Mi compalero @elpantallazoazul y yo @lorspi creamos este pequeño servidor de mo
 
 Si no estás en la whitelist y querés hacer parte de este servidor, ponete en contacto con **PantallazoAzul** o **lorspi**
 
+
+//----------------------------------------------------
+
+
 ## Instalar
 
 ### MultiMC
-1. Descarga la instancia: [Instancia para MultiMC](https://github.com/mochos/actualizador/raw/main/Perryland/Perryland.zip)
+1. Descarga la instancia: [Instancia para MultiMC](https://mochos.xyz/perryland/modpack/Perryland.zip)
 2. Abre tu MultiMC y arrastra el zip descargado hacia la ventana del launcher.
 3. En la ventana que aparece le das en "Ok"
 4. Inicias la instancia que acabas de instalar
 ```ℹ️ Cada vez que inicies esa instancia se comprobará automáticamente si hay actuaizaciones.```
 
 ### Otros launchers
-1. Descarga el instalador: [Instalador batch](https://github.com/mochos/actualizador/raw/main/Perryland/batch/instalar-actualizar.bat)
+1. Descarga el instalador: [Instalador batch](https://mochos.xyz/perryland/modpack/Perryland-Instalador.zip)
 2. Descomprime el zip en tu carpeta _.minecraft_ de tu juego.
 3. Ejecuta el archivo _instalar-actualizar.bat_ y sigue las instrucciones.
 ```ℹ️ Deberás ejecutarlo manualmente antes de jugar cada vez que se necesiten hayan actualizaciones.```

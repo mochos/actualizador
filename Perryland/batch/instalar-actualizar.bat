@@ -14,6 +14,8 @@ set crear_acceso=0
 
 rem Obtener la ruta actual
 set "ruta_actual=%cd%"
+set MODPACK=https://mochos.xyz/perryland/modpack/
+set SKINS=https://mochos.xyz/offlineskins/skins.zip
 
 rem Verificar si estamos dentro de la carpeta .minecraft
 if "%ruta_actual:~-11%"=="\%carpeta%" (
@@ -65,12 +67,12 @@ REM Función completa
 :completa
 
 REM Acyualizando skins en silencio
-curl -s -o skins.zip -L http://mochos.sytes.net:8000/offlineskins/skins.zip
+curl -s -o skins.zip -L %SKINS%
 tar -xf skins.zip --strip-components=0
 del skins.zip
 
 REM Descargar el archivo remoto "version.txt"
-curl -s -o version_remote.txt https://raw.githubusercontent.com/mochos/actualizador/main/Perryland/actualizar/version.txt
+curl -s -o version_remote.txt %MODPACK%version.txt
 
 REM Verificar si existe el archivo local version.txt
 if exist version.txt (
@@ -177,7 +179,7 @@ REM -----------------------------------------------
     echo └─────────────────────────────────────────────────────────────┘
 
     REM Descargar el archivo ZIP del repositorio
-    curl -o instalar.zip --progress-bar http://mochos.sytes.net:8000/perryland/instalar.zip
+    curl -o instalar.zip --progress-bar %MODPACK%instalar.zip
 
     call :cabecera
     echo │  Iniciando instalación... OK                                │
@@ -300,7 +302,7 @@ REM -----------------------------------------------
     echo └─────────────────────────────────────────────────────────────┘
 
     REM Descargar el archivo ZIP del repositorio
-    curl -o actualizar.zip --progress-bar http://mochos.sytes.net:8000/perryland/actualizar.zip
+    curl -o actualizar.zip --progress-bar %MODPACK%actualizar.zip
 
     timeout /nobreak /t 1 >nul
 
