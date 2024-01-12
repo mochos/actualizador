@@ -88,7 +88,6 @@ if exist version.txt (
         exit
     ) else (
         call :cabecera
-        echo │                                                             │
         echo │  Comprobando actualizaciones...                             │
         echo │                                                             │
         echo │                                                             │
@@ -104,7 +103,6 @@ if exist version.txt (
         timeout /nobreak /t 2 >nul
 
         call :cabecera
-        echo │                                                             │
         echo │  Comprobando actualizaciones... OK                          │
         echo │                                                             │
         echo │  ¡TIENES LA VERSIÓN MÁS RECIENTE INSTALADA!                 │
@@ -259,7 +257,6 @@ REM -----------------------------------------------
     if exist "mods" (
         pushd "mods"
         call :cabecera
-        echo │                                                             │
         echo │  Comprobando actualizaciones... OK                          │
         echo │  Eliminando versiones antiguas...                           │
         echo │                                                             │
