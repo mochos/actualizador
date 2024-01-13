@@ -1,4 +1,4 @@
-#### ¡Bienvenidos a Perryland!
+**¡Bienvenidos a Perryland!**
 
 Mi compalero @elpantallazoazul y yo @lorspi creamos este pequeño servidor de mods para Minecraft 1.20.1. Para instalar los mods y entrar al servidor están las instrucciones más adelante.
 
@@ -43,4 +43,4 @@ lorem ipsum
 4. No sabotearás al Perryland ni en su funcionamiento ni en su construcción.
 5. No estafarás a tus compañeros.
 6. Reportarás cualquier actividad sospechosa de tus compañeros.```
-```El Mundito y su staff no se hacen responsables por la pérdida de inventarios, construcciones o progresos del jugador por causa del mal funcionamiento de la plataforma, cambio de nick o sabotaje de otros jugadores.```
+```Perryland y su staff no se hacen responsables por la pérdida de inventarios, construcciones o progresos del jugador por causa del mal funcionamiento de la plataforma, cambio de nick o sabotaje de otros jugadores.```
