@@ -66,64 +66,121 @@ REM Función completa
 
 :completa
 
-REM Acyualizando skins en silencio
-curl -s -o skins.zip -L %SKINS%
-tar -xf skins.zip --strip-components=0
-del skins.zip
+rem Verificar conexión con el servidor
+call :cabecera
+echo │  Verificando conexión...                                    │
+echo │                                                             │
+echo │                                                             │
+echo │                                                             │
+echo │                                                             │
+echo │                                                             │
+echo │                                                             │
+echo │                                                             │
+echo │                                                             │
+echo └─────────────────────────────────────────────────────────────┘
+timeout /nobreak /t 1 >nul
 
-REM Descargar el archivo remoto "version.txt"
-curl -s -o version_remote.txt %MODPACK%version.txt
+curl -s -o activo -L %MODPACK%activo
 
-REM Verificar si existe el archivo local version.txt
-if exist version.txt (
-    REM Comparar el archivo remoto con el archivo local
-    fc /b "version.txt" "version_remote.txt" > nul
-    REM Verificar el código de error de fc (0 si son idénticos, 1 si son diferentes)
-    if errorlevel 1 (
-        
-
-        call :actualizar
-
-        pause >nul
+if %errorlevel% neq 0 (
+    call :cabecera
+    echo │  Verificando conexión... :(                                 │
+    echo │                                                             │
+    echo │  ¡IMPOSIBLE CONECTAR AL SERVIDOR!                           │
+    echo │  Por favor intenta más tarde.                               │
+    echo │                                                             │
+    echo │                                                             │
+    echo │                                                             │
+    echo │  Ya puedes cerrar esta ventana.                             │
+    echo │                                                             │
+    echo └─────────────────────────────────────────────────────────────┘
+    pause >nul
+    exit
+) else (
+    set /p contenido=<"activo"
+    if /i "%contenido%" equ "activo" (
+        echo Todo bien!
+        del activo
+        pause
         exit
-    ) else (
-        call :cabecera
-        echo │  Comprobando actualizaciones...                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo └─────────────────────────────────────────────────────────────┘
-        del /q version_remote.txt
+    
 
-        timeout /nobreak /t 2 >nul
+        REM Acyualizando skins en silencio
+        curl -s -o skins.zip -L %SKINS%
+        tar -xf skins.zip --strip-components=0
+        del skins.zip
 
+        REM Descargar el archivo remoto "version.txt"
+        curl -s -o version_remote.txt %MODPACK%version.txt
+
+        REM Verificar si existe el archivo local version.txt
+        if exist version.txt (
+            REM Comparar el archivo remoto con el archivo local
+            fc /b "version.txt" "version_remote.txt" > nul
+            REM Verificar el código de error de fc (0 si son idénticos, 1 si son diferentes)
+            if errorlevel 1 (
+                
+
+                call :actualizar
+
+                pause >nul
+                exit
+            ) else (
+                call :cabecera
+                echo │  Comprobando actualizaciones...                             │
+                echo │                                                             │
+                echo │                                                             │
+                echo │                                                             │
+                echo │                                                             │
+                echo │                                                             │
+                echo │                                                             │
+                echo │                                                             │
+                echo │                                                             │
+                echo └─────────────────────────────────────────────────────────────┘
+                del /q version_remote.txt
+
+                timeout /nobreak /t 2 >nul
+
+                call :cabecera
+                echo │  Comprobando actualizaciones... OK                          │
+                echo │                                                             │
+                echo │  ¡TIENES LA VERSIÓN MÁS RECIENTE INSTALADA!                 │
+                echo │                                                             │
+                echo │                                                             │
+                echo │                                                             │
+                echo │                                                             │
+                echo │  Ya puedes cerrar esta ventana.                             │
+                echo │                                                             │
+                echo └─────────────────────────────────────────────────────────────┘
+                pause >nul
+                exit
+            )
+        ) else (
+
+
+            call :instalar
+            call :actualizar
+
+            pause >nul
+            exit
+        )
+
+) else (
         call :cabecera
-        echo │  Comprobando actualizaciones... OK                          │
+        echo │  Verificando conexión... :(                                 │
         echo │                                                             │
-        echo │  ¡TIENES LA VERSIÓN MÁS RECIENTE INSTALADA!                 │
-        echo │                                                             │
+        echo │  ¡IMPOSIBLE CONECTAR AL SERVIDOR!                           │
+        echo │  Por favor intenta más tarde.                               │
         echo │                                                             │
         echo │                                                             │
         echo │                                                             │
         echo │  Ya puedes cerrar esta ventana.                             │
         echo │                                                             │
         echo └─────────────────────────────────────────────────────────────┘
+        del activo
         pause >nul
         exit
     )
-) else (
-
-
-    call :instalar
-    call :actualizar
-
-    pause >nul
-    exit
 )
 
 
