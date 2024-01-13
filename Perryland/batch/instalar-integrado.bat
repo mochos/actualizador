@@ -1,7 +1,7 @@
 @echo off
 title Perryland - Instalador
 
-mode con: cols=63 lines=17
+mode con: cols=63 lines=18
 
 cd /d %~dp0
 
