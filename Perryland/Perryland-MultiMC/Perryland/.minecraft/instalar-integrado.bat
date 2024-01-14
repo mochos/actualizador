@@ -22,67 +22,106 @@ REM Función completa
 
 :completa
 
-REM Acyualizando skins en silencio
-curl -s -o skins.zip -L %SKINS%
-tar -xf skins.zip --strip-components=0
-del skins.zip
+rem Verificar conexión con el servidor
+call :cabecera
+echo │  Verificando conexión...                                    │
+echo │                                                             │
+echo │                                                             │
+echo │                                                             │
+echo │                                                             │
+echo │                                                             │
+echo │                                                             │
+echo │                                                             │
+echo │                                                             │
+echo └─────────────────────────────────────────────────────────────┘
+timeout /nobreak /t 1 >nul
 
-REM Descargar el archivo remoto "version.txt"
-curl -s -o version_remote.txt %MODPACK%version.txt
+set "archivo=activo"
+set "verificar_texto=activo"
 
-REM Verificar si existe el archivo local version.txt
-if exist version.txt (
-    REM Comparar el archivo remoto con el archivo local
-    fc /b "version.txt" "version_remote.txt" > nul
-    REM Verificar el código de error de fc (0 si son idénticos, 1 si son diferentes)
-    if errorlevel 1 (
-        
+curl -s -o %archivo% -L %MODPACK%%archivo%
+for /f "delims=" %%i in (%archivo%) do (set contenido=%%i)
 
+if /i "%contenido%" equ "%verificar_texto%" (
+
+    REM Acyualizando skins en silencio
+    curl -s -o skins.zip -L %SKINS%
+    tar -xf skins.zip --strip-components=0
+    del skins.zip
+
+    REM Descargar el archivo remoto "version.txt"
+    curl -s -o version_remote.txt %MODPACK%version.txt
+
+    REM Verificar si existe el archivo local version.txt
+    if exist version.txt (
+        REM Comparar el archivo remoto con el archivo local
+        fc /b "version.txt" "version_remote.txt" > nul
+        REM Verificar el código de error de fc (0 si son idénticos, 1 si son diferentes)
+        if errorlevel 1 (
+            
+
+            call :actualizar
+
+            REM Cerrando ventana en 7 secs...
+            timeout /nobreak /t 7 >nul
+            exit
+        ) else (
+            call :cabecera
+            echo │  Comprobando actualizaciones...                             │
+            echo │                                                             │
+            echo │                                                             │
+            echo │                                                             │
+            echo │                                                             │
+            echo │                                                             │
+            echo │                                                             │
+            echo │                                                             │
+            echo │                                                             │
+            echo └─────────────────────────────────────────────────────────────┘
+            del /q version_remote.txt
+
+            timeout /nobreak /t 2 >nul
+
+            call :cabecera
+            echo │  Comprobando actualizaciones... OK                          │
+            echo │                                                             │
+            echo │  ¡TIENES LA VERSIÓN MÁS RECIENTE INSTALADA!                 │
+            echo │                                                             │
+            echo │                                                             │
+            echo │                                                             │
+            echo │                                                             │
+            echo │  Iniciando el juego...                                      │
+            echo │                                                             │
+            echo └─────────────────────────────────────────────────────────────┘
+            del control
+            REM Cerrando ventana en 7 secs...
+            timeout /nobreak /t 7 >nul
+            exit
+        )
+    ) else (
+
+
+        call :instalar
         call :actualizar
 
         REM Cerrando ventana en 7 secs...
         timeout /nobreak /t 7 >nul
         exit
-    ) else (
-        call :cabecera
-        echo │  Comprobando actualizaciones...                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo └─────────────────────────────────────────────────────────────┘
-        del /q version_remote.txt
-
-        timeout /nobreak /t 2 >nul
-
-        call :cabecera
-        echo │  Comprobando actualizaciones... OK                          │
-        echo │                                                             │
-        echo │  ¡TIENES LA VERSIÓN MÁS RECIENTE INSTALADA!                 │
-        echo │                                                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo │                                                             │
-        echo │  Iniciando el juego...                                      │
-        echo │                                                             │
-        echo └─────────────────────────────────────────────────────────────┘
-        del control
-        REM Cerrando ventana en 7 secs...
-        timeout /nobreak /t 7 >nul
-        exit
     )
+
 ) else (
-
-
-    call :instalar
-    call :actualizar
-
-    REM Cerrando ventana en 7 secs...
-    timeout /nobreak /t 7 >nul
+    call :cabecera
+    echo │  Verificando conexión... :(                                 │
+    echo │                                                             │
+    echo │  ¡IMPOSIBLE CONECTAR AL SERVIDOR!                           │
+    echo │  Por favor intenta más tarde.                               │
+    echo │                                                             │
+    echo │                                                             │
+    echo │                                                             │
+    echo │  Ya puedes cerrar esta ventana.                             │
+    echo │                                                             │
+    echo └─────────────────────────────────────────────────────────────┘
+    del /Q %archivo% > nul 2>&1
+    pause >nul
     exit
 )
 
