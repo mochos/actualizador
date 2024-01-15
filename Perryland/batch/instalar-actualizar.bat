@@ -89,6 +89,8 @@ for /f "delims=" %%i in (%archivo%) do (set contenido=%%i)
 
 if /i "%contenido%" equ "%verificar_texto%" (
 
+    del /Q %archivo% > nul 2>&1
+
     REM Acyualizando skins en silencio
     curl -s -o skins.zip -L %SKINS%
     tar -xf skins.zip --strip-components=0
