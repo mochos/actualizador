@@ -28,7 +28,8 @@ Si agregas mods personales a tu juego, deberás agregarles **"NB_"** al inicio d
 Por ejemplo **"farsight-1.20.1-3.5.jar."** ---> **"NB_farsight-1.20.1-3.5.jar."**
 
 ### IP del servidor
-lorem ipsum
+●●●●●●.●●●
+```ℹ️ La IP se configura automáticamente con los instaladores.```
 
 ### Comandos
 ```diff
