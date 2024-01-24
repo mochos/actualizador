@@ -42,8 +42,8 @@ ao:true
 prioritizeChunkUpdates:0
 biomeBlendRadius:2
 renderClouds:"true"
-resourcePacks:["vanilla","mod_resources","file/CTM-Overhaul-V_5.0.zip","file/connectibles-e80.zip","file/FreshAnimations_v1.8.1.zip","file/xali\u0027s Enhanced Vanilla v1.11.1.zip","file/Perryland"]
-incompatibleResourcePacks:["file/connectibles-e80.zip","file/FreshAnimations_v1.8.1.zip","file/xali\u0027s Enhanced Vanilla v1.11.1.zip","file/Perryland"]
+resourcePacks:["vanilla","mod_resources","file/FreshAnimations_v1.8.1.zip","file/xali\u0027s Enhanced Vanilla v1.11.1.zip","file/Perryland","file/Midnighttiggers-CTM-Default_1.20.2_V2.zip"]
+incompatibleResourcePacks:["file/FreshAnimations_v1.8.1.zip","file/xali\u0027s Enhanced Vanilla v1.11.1.zip","file/Perryland","file/Midnighttiggers-CTM-Default_1.20.2_V2.zip"]
 lastServer:
 lang:es_es
 soundDevice:""
