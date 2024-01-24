@@ -1,0 +1,25 @@
+Estructuras
+/locate structure betterdeserttemples:desert_temple
+/locate structure betteroceanmonuments:ocean_monument
+/locate structure betterstrongholds:stronghold
+
+Biomas
+/locate biome alexscaves:abyssal_chasm
+/locate biome alexscaves:forlorn_hollows
+/locate biome alexscaves:magnetic_caves
+/locate biome alexscaves:primordial_caves
+/locate biome alexscaves:toxic_caves
+
+------------------------------------------
+
+1
+	-3985168092009257672
+	Templo del desierto a 2058 bloques
+	Monumento oceánico a 741 bloques
+	Stronghold a 1538 bloques
+
+	Abysal Chasm a 5510 bloques
+	Forlorn hollows a 1630 bloques
+	Magnetic caves a 2391 bloques
+	Primordial caves a 3764 bloques
+	Toxic caves a 5243 bloques
