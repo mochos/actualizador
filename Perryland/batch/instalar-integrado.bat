@@ -115,13 +115,14 @@ if /i "%contenido%" equ "%verificar_texto%" (
     echo │  Verificando conexión... :(                                 │
     echo │                                                             │
     echo │  ¡IMPOSIBLE CONECTAR AL SERVIDOR!                           │
+    echo │  El juego no se actualizó.                                  │
     echo │  Por favor intenta más tarde.                               │
-    echo │                                                             │
     echo │                                                             │
     echo │                                                             │
     echo │  Ya puedes cerrar esta ventana.                             │
     echo │                                                             │
     echo └─────────────────────────────────────────────────────────────┘
+    del control
     del /Q %archivo% > nul 2>&1
     pause >nul
     exit
