@@ -20,6 +20,8 @@ move "actualizar.zip" "../compilado" > nul
 
 copy "version.txt" "../compilado" > nul
 
+copy "activo" "../compilado" > nul
+
 echo actualizar.zip compilado.
 
 cd ..
