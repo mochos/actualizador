@@ -15,7 +15,7 @@ set crear_acceso=0
 rem Obtener la ruta actual
 set "ruta_actual=%cd%"
 set MODPACK=https://mochos.xyz/perryland/modpack/
-set SKINS=https://mochos.xyz/offlineskins/skins.zip
+set SKINS=https://github.com/mochos/mochos.github.io/raw/main/skins/skins.zip
 
 rem Verificar si estamos dentro de la carpeta .minecraft
 if "%ruta_actual:~-11%"=="\%carpeta%" (

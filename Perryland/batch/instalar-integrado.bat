@@ -12,7 +12,7 @@ setlocal
 rem Obtener la ruta actual
 set "ruta_actual=%cd%"
 set MODPACK=https://mochos.xyz/perryland/modpack/
-set SKINS=https://mochos.xyz/offlineskins/skins.zip
+set SKINS=https://github.com/mochos/mochos.github.io/raw/main/skins/skins.zip
 
 call :completa
 
